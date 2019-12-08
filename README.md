@@ -53,7 +53,7 @@ npm install i18next-express-middleware
 
 ## Configuring the App
 The following was added to the `app.js` file to load the new modules:
-```
+```js
 // Localization
 var i18next = require("i18next");
 var i18back = require('i18next-node-fs-backend');
@@ -61,7 +61,7 @@ var i18midd = require("i18next-express-middleware");
 ```
 
 And **i18next** is initialized in the `app.js` file as:
-```
+```js
 // Initialize i18next
 i18next
   .use(i18back)
@@ -83,7 +83,7 @@ i18next
 ```
 
 In the same `app.js` file, the middleware is connected just before the routes (so it is not used when getting the views, stylesheets, images...) 
-```
+```js
 // Use i18next
 app.use(i18midd.handle(i18next, {
   removeLngFromUrl: false
@@ -93,7 +93,7 @@ app.use(i18midd.handle(i18next, {
 
 ## Configuring the routes
 The `index.js` router was modified to include these three routes:
-```
+```js
 /* GET A page. */
 router.get('/page-a/', function(req, res, next) {
   res.render('page-a', { title: req.t('page-a.title'), });
@@ -171,7 +171,7 @@ block content
 The translation is included in two files:
 
 English is provided in the `locales/en/translation.json` file:
-```
+```json
 {
   "index": {
     "title"   : "Title of Home page",
@@ -189,7 +189,7 @@ English is provided in the `locales/en/translation.json` file:
 ```
 
 Spanish is provided in the `locales/es/translation.json` file:
-```
+```json
 {
   "index": {
     "title"   : "Título de la página Home",

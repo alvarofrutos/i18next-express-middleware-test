@@ -1,0 +1,14 @@
+{
+  "index": {
+    "title"   : "Title of Home page",
+    "content" : "Content of the Home page. This was translated directly in the PUG view. The title translated in the router."
+  },
+  "page-a": {
+    "title"   : "Title of A page",
+    "content" : "Content of the A page. This was translated directly in the PUG view. The title translated in the router."
+  },
+  "page-b": {
+    "title"   : "Title of B page",
+    "content" : "Content of the B page. This was translated directly in the PUG view. The title translated in the router."
+  }
+}

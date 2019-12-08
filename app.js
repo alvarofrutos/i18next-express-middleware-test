@@ -4,8 +4,32 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// Localization
+var i18next = require("i18next");
+var i18back = require('i18next-node-fs-backend');
+var i18midd = require("i18next-express-middleware");
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+// Initialize i18next
+i18next
+  .use(i18back)
+  .use(i18midd.LanguageDetector)
+  .init({
+    debug: true, // To be removed in production
+    backend: {
+      loadPath: __dirname + '/locales/{{lng}}/{{ns}}.json',
+      addPath: __dirname + '/locales/{{lng}}/{{ns}}.missing.json'
+    },
+    fallbackLng: 'en',
+    saveMissing: true,
+    detection: {
+      // Use cookies so the user selected language is kept
+      caches: ['cookie'],
+      cookieDomain: 'i18next-express-middleware-test'
+    }
+  });
 
 var app = express();
 
@@ -18,6 +42,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Use i18next
+app.use(i18midd.handle(i18next, {
+  removeLngFromUrl: false
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

@@ -19,9 +19,6 @@ i18next: hasLoadedNamespace: i18n.languages were undefined or empty undefined
 i18next::translator: key "index.title" for namespace "translation" for languages "en" won't get resolved as namespace was not yet loaded This means something IS WRONG in your application setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!
 ```
 
-3. Finally, when the language is changed using the buttons, this selection is not maintained when navigating to other pages.
-
-
 # Run the web
 Once downloaded install all NPM modules:
 ```

@@ -1,5 +1,5 @@
 # Introduction
-This is an example project for **i18next-express-middleware**. It uses **i18next** to provide the content in different languages.
+This is an example project for [**i18next-express-middleware**](https://github.com/i18next/i18next-express-middleware). It uses [**i18next**](https://www.i18next.com) to provide the content in different languages.
 
 The sample consist on a basic Express webpage created and structured following the default Express layout.
 

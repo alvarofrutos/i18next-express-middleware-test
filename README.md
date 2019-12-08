@@ -1,29 +1,29 @@
 # Introduction
 This is an example project for **i18next-express-middleware**. It uses **i18next** to provide the content in different languages.
 
-The sample consist on a basic Express webpage created and structured as the default Express layout.
+The sample consist on a basic Express webpage created and structured following the default Express layout.
 
-The idea is having a web, with three pages: Home, Page A and Page B. The language is automatically detected.
+The idea is having a web with three pages: Home, Page A and Page B. The language is automatically detected but the user has the option to select it manually.
 
-The content of the pages is translated in two different places:
+To make the example more useful and representative of the different functionalities, the content of the pages is translated in two different places:
 * The title is translated in the router or controller.
 * The content is translated directly in the PUG view.
 
 # Current Errors
-In the first place, **i18next** is initialize each time a page is loaded.
+1. In the first place, **i18next** is initialized each time a page is loaded.
 
-In addition, the following error is provided by **i18next**
+2. In addition, the following error is provided by **i18next**
 ```
 i18next: languageChanged en
 i18next: hasLoadedNamespace: i18n.languages were undefined or empty undefined
 i18next::translator: key "index.title" for namespace "translation" for languages "en" won't get resolved as namespace was not yet loaded This means something IS WRONG in your application setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!
 ```
 
-Finally, when the language is changed using the buttons, this selection is not maintained when navigating to other pages.
+3. Finally, when the language is changed using the buttons, this selection is not maintained when navigating to other pages.
 
 
 # Run the web
-Once downloaded install all libraries:
+Once downloaded install all NPM modules:
 ```
 npm install
 ```
@@ -37,7 +37,7 @@ Open the following page in your browser:
 [http://localhost:3000](http://localhost:3000)
 
 
-# Description
+# Description of the project
 ## Installation
 This project was created using the Express initialization command:
 ```
@@ -60,7 +60,7 @@ var i18back = require('i18next-node-fs-backend');
 var i18midd = require("i18next-express-middleware");
 ```
 
-And **i18next** is initialize in the `app.js` file as:
+And **i18next** is initialized in the `app.js` file as:
 ```
 // Initialize i18next
 i18next

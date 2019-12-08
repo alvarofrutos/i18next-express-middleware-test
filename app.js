@@ -22,12 +22,13 @@ i18next
       loadPath: __dirname + '/locales/{{lng}}/{{ns}}.json',
       addPath: __dirname + '/locales/{{lng}}/{{ns}}.missing.json'
     },
+    preload: ['en', 'es'],
     fallbackLng: 'en',
     saveMissing: true,
     detection: {
       // Use cookies so the user selected language is kept
       caches: ['cookie'],
-      cookieDomain: 'i18next-express-middleware-test'
+      cookieDomain: 'localhost' // => must be a real domain
     }
   });
 
@@ -44,9 +45,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Use i18next
-app.use(i18midd.handle(i18next, {
-  removeLngFromUrl: false
-}));
+app.use(i18midd.handle(i18next));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
